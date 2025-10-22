@@ -54,7 +54,7 @@ def advance_students():
 def student_names():
     result = []
     for stud in students:
-        result.append({'student_name' : f'{stud['first_name']} {stud['last_name']}'})
+        result.append({'first_name' : f'{stud['first_name']}', 'last_name' : f'{stud['last_name']}'})
     return result
 
 

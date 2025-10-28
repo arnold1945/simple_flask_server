@@ -28,33 +28,42 @@ def get_students():
 @app.route('/old_students', methods=['GET'])
 def old_students():
     
-    result = []
-    for stud in students:
-        if stud['age'] > 20:
-            result.append(stud)
+    # result = []
+    # for stud in students:
+    #     if stud['age'] > 20:
+    #         result.append(stud)
+    # return result
+    ##below code is the refactored version of the code above
+    result = [stud for stud in students if stud['age'] > 20]
     return result
 
 @app.route('/young_students', methods= ['GET'])
 def young_students():
-    result =[]
-    for stud in students:
-        if stud['age'] < 21:
-            result.append(stud)
+    # result =[]
+    # for stud in students:
+    #     if stud['age'] < 21:
+    #         result.append(stud)
+    ##code below is the refactored version of the code above
+    result = [stud for stud in students if stud['age'] < 21]
     return result
 
 @app.route('/advance_students', methods=['GET'])
 def advance_students():
-    result = []
-    for stud in students:
-        if stud['age'] < 21 and stud['grade'] == 'A':
-            result.append(stud)
+    # result = []
+    # for stud in students:
+    #     if stud['age'] < 21 and stud['grade'] == 'A':
+    #         result.append(stud)
+    ## code below is the refactored version of the code above
+    result = [stud for stud in students if stud['age'] < 21 and stud['grade']=='A']
     return result
 
 @app.route('/student_names', methods= ['GET'])
 def student_names():
-    result = []
-    for stud in students:
-        result.append({'first_name' : f'{stud['first_name']}', 'last_name' : f'{stud['last_name']}'})
+    # result = []
+    # for stud in students:
+    #     result.append({'first_name' : f'{stud['first_name']}', 'last_name' : f'{stud['last_name']}'})
+    ## code below is the refactored version of the code above
+    result = [{'first_name' : f'{stud['first_name']}', 'last_name' : f'{stud['last_name']}'} for stud in students ]
     return result
 
 
